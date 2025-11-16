@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV Maker</title>
+
+    <!-- Nice fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Your main stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- You can keep your existing header / navbar pattern -->
+    <header class="site-header">
+      <div class="logo"><a href="../index.html">Discover the Web</a></div>
+      <nav class="navbar">
+        <ul>
+          <li><a href="index2.html">Overview</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="security.html">Security</a></li>
+          <li><a href="mobile-first.html">Mobile-First</a></li>
+          <li><a href="stats.html">Stats</a></li>
+          <li><a href="arabic.html">Arabic 🎸</a></li>
+          <li><a href="cv.html">CV</a></li>
+          <li><a href="cv-maker.html" class="active">CV Maker</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="content cv-maker">
+      <h1 class="cv-title">CV Maker</h1>
+      <p class="cv-subtitle">
+        Fill in the form on the left. We’ll check for errors and show a live CV
+        preview on the right. The photo is optional.
+      </p>
+
+      <section class="cv-maker-layout">
+        <!-- LEFT: FORM -->
+        <section class="cv-form-section">
+          <form id="cvForm" novalidate>
+            <div
+              id="form-global-error"
+              class="form-global-error"
+              aria-live="polite"
+            ></div>
+
+            <div class="form-group">
+              <label for="fullName">Full Name *</label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                placeholder="Your full name"
+                required
+              />
+              <p class="error-msg" data-error-for="fullName"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="role">Role / Title *</label>
+              <input
+                type="text"
+                id="role"
+                name="role"
+                placeholder="e.g. CCE Student"
+                required
+              />
+              <p class="error-msg" data-error-for="role"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                required
+              />
+              <p class="error-msg" data-error-for="email"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone *</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+961 XX XXX XXX"
+                required
+              />
+              <p class="error-msg" data-error-for="phone"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="location">Location *</label>
+              <input
+                type="text"
+                id="location"
+                name="location"
+                placeholder="City, Country"
+                required
+              />
+              <p class="error-msg" data-error-for="location"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="summary">Profile Summary *</label>
+              <textarea
+                id="summary"
+                name="summary"
+                rows="4"
+                placeholder="Short 2–4 sentences about you, your goals, and your strengths."
+                required
+              ></textarea>
+              <p class="error-msg" data-error-for="summary"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="skills">Skills (comma-separated) *</label>
+              <textarea
+                id="skills"
+                name="skills"
+                rows="2"
+                placeholder="e.g Teamwork"
+                required
+              ></textarea>
+              <p class="error-msg" data-error-for="skills"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="education">Education *</label>
+              <textarea
+                id="education"
+                name="education"
+                rows="4"
+                placeholder="Bachelor in..."
+                required
+              ></textarea>
+              <p class="error-msg" data-error-for="education"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="experience">Experience *</label>
+              <textarea
+                id="experience"
+                name="experience"
+                rows="4"
+                placeholder="eg Volunteer"
+                required
+              ></textarea>
+              <p class="error-msg" data-error-for="experience"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="languages">Languages *</label>
+              <textarea
+                id="languages"
+                name="languages"
+                rows="3"
+                placeholder="- Arabic – Native&#10;- English – Fluent&#10;- French – Good level"
+                required
+              ></textarea>
+              <p class="error-msg" data-error-for="languages"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="photoInput">Profile Photo (optional)</label>
+              <input
+                type="file"
+                id="photoInput"
+                name="photoInput"
+                accept="image/*"
+              />
+              <p class="error-msg" data-error-for="photoInput"></p>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-primary">Generate CV</button>
+              <button type="reset" class="btn-secondary" id="resetBtn">
+                Reset
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <!-- RIGHT: PREVIEW -->
+        <section class="cv-preview-section">
+          <h2 class="cv-preview-title">Live Preview</h2>
+          <div id="cvPreview" class="cv-preview">
+            <p class="cv-placeholder">
+              Fill in the form to see your CV preview here.
+            </p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        References &copy; All rights reserved:
+        <a href="references.html">References overview</a>
+      </p>
+      <p>Project for GIN446 - Educational purposes only</p>
+      <p>DISCLAIMER: AI usage for IEEE formatting, CSS and translation</p>
+    </footer>
+
+    <!-- JS file -->
+    <script src="cv-maker.js"></script>
+  </body>
+</html>
